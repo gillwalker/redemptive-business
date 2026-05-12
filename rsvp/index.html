@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RSVP – SMB Owners Collective Quarterly Breakfast | Redemptive Business</title>
+  <meta name="description" content="Reserve your seat at the SMB Owners Collective quarterly breakfast on August 21, 2026 at Flatirons Community Church in Lafayette, CO.">
+  <meta property="og:title" content="SMB Owners Collective – Quarterly Breakfast RSVP">
+  <meta property="og:description" content="A breakfast gathering for Christian business owners. August 21, 2026 · Flatirons Community Church · Lafayette, CO">
+  <meta property="og:url" content="https://www.redemptive.business/rsvp">
+  <link rel="canonical" href="https://www.redemptive.business/rsvp">
+  <link rel="icon" href="../favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Source+Sans+3:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --warm-cream: #FDF8F2;
+      --warm-border: #D9C5AE;
+      --warm-brown: #8B6B4A;
+      --warm-dark: #3D2B1F;
+      --warm-accent: #C17D3C;
+      --success: #4A7C59;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--warm-cream);
+      font-family: 'Source Sans 3', sans-serif;
+      font-weight: 400;
+      color: var(--warm-dark);
+      min-height: 100vh;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      background: var(--warm-dark);
+      padding: 0.75rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      letter-spacing: 0.3px;
+    }
+    .nav-brand span { color: var(--warm-accent); }
+    .nav-link {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      letter-spacing: 0.5px;
+    }
+    .nav-link:hover { color: rgba(255,255,255,0.9); }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(160deg, #3D2B1F 0%, #6B4226 60%, #8B6B4A 100%);
+      padding: 3.5rem 2rem 2.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .hero-inner { position: relative; }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: rgba(255,255,255,0.85);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+    .hero-sub {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.75);
+      font-weight: 300;
+      margin-bottom: 1.75rem;
+    }
+    .date-bar {
+      display: inline-flex;
+      align-items: center;
+      gap: 1.25rem;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 12px;
+      padding: 0.75rem 1.25rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .date-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.9);
+      font-size: 0.88rem;
+    }
+    .date-item i { color: var(--warm-accent); font-size: 16px; }
+    .date-divider { width: 1px; height: 20px; background: rgba(255,255,255,0.2); }
+
+    /* ── MAIN LAYOUT ── */
+    .main {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 1.25rem 3rem;
+    }
+
+    /* ── ABOUT CARD ── */
+    .about-card {
+      background: #fff;
+      border: 1px solid var(--warm-border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      margin-top: -1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 24px rgba(61,43,31,0.08);
+    }
+    .about-card p {
+      color: #5C4033;
+      font-size: 0.97rem;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+    .about-card p em {
+      font-style: italic;
+      font-weight: 400;
+      color: #3D2B1F;
+    }
+    .map-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.78rem;
+      color: var(--warm-accent);
+      text-decoration: none;
+      margin-top: 10px;
+    }
+    .map-link:hover { text-decoration: underline; }
+
+    /* ── FORM CARD ── */
+    .form-card {
+      background: #fff;
+      border: 1px solid var(--warm-border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .form-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--warm-dark);
+      margin-bottom: 0.25rem;
+    }
+    .form-sub {
+      font-size: 0.85rem;
+      color: #8B7B70;
+      margin-bottom: 0.75rem;
+    }
+    .required-note {
+      font-size: 0.75rem;
+      color: #8B7B70;
+      font-weight: 300;
+      margin-bottom: 1.25rem;
+    }
+    .req-star { color: var(--warm-accent); }
+
+    /* Error banner */
+    .form-error-banner {
+      display: none;
+      background: #FFF0F0;
+      border: 1px solid #F7C1C1;
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 14px;
+      font-size: 0.82rem;
+      color: #A32D2D;
+      align-items: center;
+      gap: 8px;
+    }
+    .form-error-banner i { font-size: 16px; flex-shrink: 0; }
+
+    /* Fields */
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .field { display: flex; flex-direction: column; gap: 5px; margin-bottom: 14px; }
+    .field label {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: #6B4A35;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .field input {
+      width: 100%;
+      padding: 10px 13px;
+      border: 1.5px solid var(--warm-border);
+      border-radius: 8px;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.95rem;
+      color: var(--warm-dark);
+      background: var(--warm-cream);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .field input:focus { outline: none; border-color: var(--warm-accent); background: #fff; }
+    .field input::placeholder { color: #BBA898; }
+
+    .error-msg {
+      font-size: 0.75rem;
+      color: #A32D2D;
+      margin-top: 2px;
+      display: none;
+      align-items: center;
+      gap: 4px;
+    }
+    .error-msg i { font-size: 13px; }
+    .field.has-error input { border-color: #E24B4A; background: #FFF8F8; }
+    .field.has-error .error-msg { display: flex; }
+    .field.is-valid input { border-color: #639922; }
+
+    /* SMS checkbox */
+    .sms-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: #FDF8F2;
+      border: 1px solid var(--warm-border);
+      border-radius: 8px;
+      padding: 11px 13px;
+      margin-bottom: 18px;
+      cursor: pointer;
+    }
+    .sms-row input[type="checkbox"] {
+      width: 17px;
+      height: 17px;
+      accent-color: var(--warm-dark);
+      cursor: pointer;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .sms-row label {
+      font-size: 0.88rem;
+      color: #4A2F1A;
+      line-height: 1.45;
+      cursor: pointer;
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+    .sms-row label span {
+      display: block;
+      font-size: 0.75rem;
+      color: #8B7B70;
+      margin-top: 3px;
+      font-weight: 300;
+    }
+
+    /* Submit button */
+    .submit-btn {
+      width: 100%;
+      padding: 13px;
+      background: var(--warm-dark);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .submit-btn:hover { background: var(--warm-brown); }
+    .submit-btn:active { transform: scale(0.99); }
+    .submit-btn:disabled { background: #BBA898; cursor: not-allowed; transform: none; }
+
+    /* ── CONFIRMATION PAGE ── */
+    #confirmPage { display: none; }
+    .confirm-hero {
+      background: linear-gradient(160deg, #3D2B1F 0%, #6B4226 60%, #8B6B4A 100%);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .confirm-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .confirm-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-weight: 600;
+      color: #fff;
+      position: relative;
+    }
+    .confirm-main { max-width: 580px; margin: 0 auto; padding: 0 1.25rem 3rem; }
+    .check-circle {
+      width: 72px; height: 72px;
+      background: #EAF3DE;
+      border: 2px solid #C0DD97;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.25rem;
+      font-size: 32px; color: var(--success);
+    }
+    .confirm-card {
+      background: #fff;
+      border: 1px solid var(--warm-border);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-top: -1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 24px rgba(61,43,31,0.08);
+      text-align: center;
+    }
+    .confirm-card h2 {
+      font-family: 'Playfair Display', serif;
+      color: var(--warm-dark);
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    .confirm-card .lead {
+      color: #5C4033;
+      font-size: 0.97rem;
+      line-height: 1.75;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+    .event-details {
+      background: var(--warm-cream);
+      border: 1px solid var(--warm-border);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.75rem;
+      text-align: left;
+    }
+    .event-detail-row {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 6px 0; font-size: 0.9rem; color: #5C4033;
+    }
+    .event-detail-row i { color: var(--warm-accent); font-size: 17px; margin-top: 1px; flex-shrink: 0; }
+    .cal-section-label {
+      font-size: 0.75rem; font-weight: 500; color: #8B7B70;
+      text-transform: uppercase; letter-spacing: 1px;
+      margin-bottom: 0.75rem; text-align: left;
+    }
+    .cal-buttons { display: flex; flex-direction: column; gap: 10px; }
+    .cal-btn {
+      display: flex; align-items: center; gap: 12px;
+      width: 100%; padding: 12px 16px;
+      border: 1px solid var(--warm-border); border-radius: 10px;
+      background: #fff; cursor: pointer;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.93rem; font-weight: 400;
+      color: var(--warm-dark); text-decoration: none;
+      transition: border-color 0.18s, background 0.18s;
+    }
+    .cal-btn:hover { border-color: var(--warm-accent); background: var(--warm-cream); }
+    .cal-icon {
+      width: 32px; height: 32px; border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .cal-icon-google  { background: #EAF0FB; }
+    .cal-icon-outlook { background: #E8F0FB; }
+    .cal-icon-apple   { background: #F1EFE8; }
+    .cal-btn-label { display: flex; flex-direction: column; align-items: flex-start; gap: 1px; flex: 1; }
+    .cal-btn-label span { font-size: 0.78rem; color: #8B7B70; font-weight: 300; }
+
+    /* ── FOOTER ── */
+    .footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.78rem;
+      color: #9B8B80;
+      border-top: 1px solid var(--warm-border);
+    }
+    .footer a { color: var(--warm-accent); text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 520px) {
+      .row { grid-template-columns: 1fr; }
+      .date-divider { display: none; }
+      .date-bar { gap: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" aria-label="Site navigation">
+    <a href="https://www.redemptive.business" class="nav-brand">redemptive<span>.</span>business</a>
+    <a href="https://www.redemptive.business" class="nav-link">← Home</a>
+  </nav>
+
+  <!-- ══════════════════════════════════════════
+       REGISTRATION PAGE
+  ══════════════════════════════════════════ -->
+  <div id="regPage">
+
+    <header class="hero">
+      <div class="hero-inner">
+        <div class="hero-tag">Quarterly Gathering</div>
+        <h1>SMB Owners Collective</h1>
+        <p class="hero-sub">Quarterly Breakfast &amp; Roundtable</p>
+        <div class="date-bar" role="list">
+          <div class="date-item" role="listitem">
+            <i class="ti ti-calendar" aria-hidden="true"></i>
+            Thursday, August 21, 2026
+          </div>
+          <div class="date-divider" aria-hidden="true"></div>
+          <div class="date-item" role="listitem">
+            <i class="ti ti-clock" aria-hidden="true"></i>
+            7:30 – 8:59 AM
+          </div>
+          <div class="date-divider" aria-hidden="true"></div>
+          <div class="date-item" role="listitem">
+            <i class="ti ti-map-pin" aria-hidden="true"></i>
+            Flatirons Community Church · Lafayette, CO
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+
+      <section class="about-card" aria-label="About this event">
+        <p>If you are a follower of Christ and a business owner, you've likely felt the tension of making decisions that honor the Lord while also increasing growth and profitability — <em>and</em> trying to maintain a healthy rhythm for work, family, friends, and community. Many of us carry these responsibilities feeling alone and without peers who truly understand what we are going through.</p>
+        <a class="map-link" href="https://maps.google.com/?q=355+W+South+Boulder+Rd,+Lafayette,+CO+80026" target="_blank" rel="noopener">
+          <i class="ti ti-map-2" style="font-size:14px" aria-hidden="true"></i>
+          Flatirons Community Church · 355 W South Boulder Rd, Lafayette, CO 80026
+        </a>
+      </section>
+
+      <section class="form-card" aria-label="RSVP form">
+        <h2 class="form-title">Reserve Your Seat</h2>
+        <p class="form-sub">August 21 · 7:30–8:59 AM · Complimentary breakfast included</p>
+        <p class="required-note"><span class="req-star">*</span> Required fields</p>
+
+        <div class="form-error-banner" id="formErrorBanner" role="alert" aria-live="assertive">
+          <i class="ti ti-alert-circle" aria-hidden="true"></i>
+          <span id="formErrorText">Please fill in all required fields before continuing.</span>
+        </div>
+
+        <form id="rsvpForm" novalidate onsubmit="return false;">
+
+          <div class="row">
+            <div class="field" id="f-first">
+              <label for="firstName">First name <span class="req-star" aria-hidden="true">*</span></label>
+              <input type="text" id="firstName" name="firstName" placeholder="Jane" autocomplete="given-name"
+                     aria-required="true" oninput="liveValidate('firstName','f-first',checkNotEmpty)">
+              <span class="error-msg" role="alert"><i class="ti ti-alert-circle" aria-hidden="true"></i>First name is required</span>
+            </div>
+            <div class="field" id="f-last">
+              <label for="lastName">Last name <span class="req-star" aria-hidden="true">*</span></label>
+              <input type="text" id="lastName" name="lastName" placeholder="Smith" autocomplete="family-name"
+                     aria-required="true" oninput="liveValidate('lastName','f-last',checkNotEmpty)">
+              <span class="error-msg" role="alert"><i class="ti ti-alert-circle" aria-hidden="true"></i>Last name is required</span>
+            </div>
+          </div>
+
+          <div class="field" id="f-company">
+            <label for="company">Company name <span class="req-star" aria-hidden="true">*</span></label>
+            <input type="text" id="company" name="company" placeholder="Acme Co." autocomplete="organization"
+                   aria-required="true" oninput="liveValidate('company','f-company',checkNotEmpty)">
+            <span class="error-msg" role="alert"><i class="ti ti-alert-circle" aria-hidden="true"></i>Company name is required</span>
+          </div>
+
+          <div class="field" id="f-title">
+            <label for="jobTitle">Your title <span style="font-weight:300;font-size:0.75rem;text-transform:none;letter-spacing:0">(optional)</span></label>
+            <input type="text" id="jobTitle" name="jobTitle" placeholder="Owner / CEO / Founder" autocomplete="organization-title">
+          </div>
+
+          <div class="field" id="f-email">
+            <label for="email">Email address <span class="req-star" aria-hidden="true">*</span></label>
+            <input type="email" id="email" name="email" placeholder="jane@acmeco.com" autocomplete="email"
+                   aria-required="true" oninput="liveValidate('email','f-email',checkEmail)">
+            <span class="error-msg" role="alert"><i class="ti ti-alert-circle" aria-hidden="true"></i>Please enter a valid email address</span>
+          </div>
+
+          <div class="field" id="f-phone">
+            <label for="phone">Mobile phone <span class="req-star" aria-hidden="true">*</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="(303) 555-0100" autocomplete="tel"
+                   aria-required="true" oninput="liveValidate('phone','f-phone',checkPhone)">
+            <span class="error-msg" role="alert"><i class="ti ti-alert-circle" aria-hidden="true"></i>A valid mobile number is required (10 digits)</span>
+          </div>
+
+          <div class="sms-row" onclick="toggleSms(event)">
+            <input type="checkbox" id="smsReminder" name="smsReminder" checked>
+            <label for="smsReminder">
+              Send me a text message reminder before the event
+              <span>Standard messaging rates may apply. Uncheck if you prefer not to receive a reminder.</span>
+            </label>
+          </div>
+
+          <button type="button" class="submit-btn" id="submitBtn" onclick="handleSubmit()">
+            Reserve my seat →
+          </button>
+
+        </form>
+      </section>
+
+    </main>
+
+  </div><!-- #regPage -->
+
+
+  <!-- ══════════════════════════════════════════
+       CONFIRMATION PAGE
+  ══════════════════════════════════════════ -->
+  <div id="confirmPage" aria-live="polite">
+
+    <div class="confirm-hero">
+      <h1>SMB Owners Collective</h1>
+    </div>
+
+    <div class="confirm-main">
+      <div class="confirm-card">
+        <div class="check-circle" aria-hidden="true">
+          <i class="ti ti-check"></i>
+        </div>
+        <h2>You're registered!</h2>
+        <p class="lead">Thank you for reserving your seat at the SMB Owners Collective quarterly breakfast. We look forward to seeing you on August 21. A confirmation will be sent to your email.</p>
+
+        <div class="event-details" aria-label="Event details">
+          <div class="event-detail-row">
+            <i class="ti ti-calendar" aria-hidden="true"></i>
+            <span>Thursday, August 21, 2026</span>
+          </div>
+          <div class="event-detail-row">
+            <i class="ti ti-clock" aria-hidden="true"></i>
+            <span>7:30 – 8:59 AM</span>
+          </div>
+          <div class="event-detail-row">
+            <i class="ti ti-map-pin" aria-hidden="true"></i>
+            <span>Flatirons Community Church<br>355 W South Boulder Rd, Lafayette, CO 80026</span>
+          </div>
+        </div>
+
+        <p class="cal-section-label">Add to your calendar</p>
+        <div class="cal-buttons">
+
+          <a class="cal-btn" id="googleCalBtn" href="#" target="_blank" rel="noopener">
+            <div class="cal-icon cal-icon-google" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+              </svg>
+            </div>
+            <div class="cal-btn-label">Google Calendar<span>Opens in Google Calendar</span></div>
+            <i class="ti ti-external-link" aria-hidden="true" style="margin-left:auto;font-size:14px;color:#BBA898"></i>
+          </a>
+
+          <a class="cal-btn" id="outlookCalBtn" href="#" target="_blank" rel="noopener">
+            <div class="cal-icon cal-icon-outlook" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="1" y="5" width="14" height="14" rx="2" fill="#0078D4"/>
+                <rect x="10" y="3" width="13" height="13" rx="2" fill="url(#outgrad)"/>
+                <defs>
+                  <linearGradient id="outgrad" x1="10" y1="3" x2="23" y2="16" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#0078D4"/><stop offset="1" stop-color="#28A8E0"/>
+                  </linearGradient>
+                </defs>
+                <text x="4.5" y="14.5" font-family="sans-serif" font-size="7" font-weight="700" fill="white">OL</text>
+              </svg>
+            </div>
+            <div class="cal-btn-label">Outlook Calendar<span>Opens Outlook on the web</span></div>
+            <i class="ti ti-external-link" aria-hidden="true" style="margin-left:auto;font-size:14px;color:#BBA898"></i>
+          </a>
+
+          <a class="cal-btn" id="appleCalBtn" href="#" download="smb-breakfast-aug21.ics">
+            <div class="cal-icon cal-icon-apple" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" fill="#555"/>
+              </svg>
+            </div>
+            <div class="cal-btn-label">Apple Calendar<span>Downloads .ics file</span></div>
+            <i class="ti ti-download" aria-hidden="true" style="margin-left:auto;font-size:14px;color:#BBA898"></i>
+          </a>
+
+        </div>
+      </div>
+    </div>
+
+  </div><!-- #confirmPage -->
+
+  <footer class="footer">
+    <p>&copy; 2026 <a href="https://www.redemptive.business">redemptive.business</a> &nbsp;·&nbsp; A gathering for faith-driven business owners</p>
+  </footer>
+
+  <script>
+    /* ── Google Sheets URL ── */
+    var SHEETS_URL = '';
+    try { SHEETS_URL = localStorage.getItem('smbBreakfastSheetsUrl') || ''; } catch(e) {}
+
+    /* ── Validation helpers ── */
+    function checkNotEmpty(v) { return v.trim().length > 0; }
+    function checkEmail(v)    { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); }
+    function checkPhone(v)    { return v.replace(/\D/g, '').length >= 10; }
+
+    function liveValidate(inputId, fieldId, checkFn) {
+      var el   = document.getElementById(inputId);
+      var wrap = document.getElementById(fieldId);
+      var val  = el.value;
+      if (val.length === 0) {
+        wrap.classList.remove('has-error', 'is-valid');
+        return;
+      }
+      if (checkFn(val)) {
+        wrap.classList.remove('has-error');
+        wrap.classList.add('is-valid');
+      } else {
+        wrap.classList.remove('is-valid');
+        wrap.classList.add('has-error');
+      }
+    }
+
+    function validate() {
+      var rules = [
+        { id: 'firstName', fid: 'f-first',   fn: checkNotEmpty },
+        { id: 'lastName',  fid: 'f-last',    fn: checkNotEmpty },
+        { id: 'company',   fid: 'f-company', fn: checkNotEmpty },
+        { id: 'email',     fid: 'f-email',   fn: checkEmail    },
+        { id: 'phone',     fid: 'f-phone',   fn: checkPhone    }
+      ];
+      var ok = true;
+      var firstBad = null;
+      rules.forEach(function(r) {
+        var el   = document.getElementById(r.id);
+        var wrap = document.getElementById(r.fid);
+        if (!r.fn(el.value)) {
+          wrap.classList.add('has-error');
+          wrap.classList.remove('is-valid');
+          ok = false;
+          if (!firstBad) firstBad = wrap;
+        } else {
+          wrap.classList.remove('has-error');
+          wrap.classList.add('is-valid');
+        }
+      });
+      var banner = document.getElementById('formErrorBanner');
+      if (!ok) {
+        document.getElementById('formErrorText').textContent = 'Please fill in all required fields before continuing.';
+        banner.style.display = 'flex';
+        if (firstBad) firstBad.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        banner.style.display = 'none';
+      }
+      return ok;
+    }
+
+    /* ── SMS checkbox toggle ── */
+    function toggleSms(e) {
+      if (e && e.target && (e.target.id === 'smsReminder' || e.target.tagName === 'INPUT')) return;
+      var cb = document.getElementById('smsReminder');
+      cb.checked = !cb.checked;
+    }
+
+    /* ── Build calendar links ── */
+    function buildCalendarLinks() {
+      var title    = encodeURIComponent('SMB Owners Collective Quarterly Breakfast');
+      var location = encodeURIComponent('Flatirons Community Church, 355 W South Boulder Rd, Lafayette, CO 80026');
+      var details  = encodeURIComponent('A quarterly breakfast and roundtable for Christian business owners. Hosted by the SMB Owners Collective.');
+      var startDT  = '20260821T073000';
+      var endDT    = '20260821T085900';
+
+      document.getElementById('googleCalBtn').href =
+        'https://calendar.google.com/calendar/render?action=TEMPLATE'
+        + '&text=' + title
+        + '&dates=' + startDT + '/' + endDT
+        + '&details=' + details
+        + '&location=' + location;
+
+      document.getElementById('outlookCalBtn').href =
+        'https://outlook.live.com/calendar/0/deeplink/compose?subject=' + title
+        + '&startdt=2026-08-21T07:30:00'
+        + '&enddt=2026-08-21T08:59:00'
+        + '&body=' + details
+        + '&location=' + location;
+
+      var ics = [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'PRODID:-//Redemptive Business//SMB Owners Collective//EN',
+        'CALSCALE:GREGORIAN',
+        'METHOD:PUBLISH',
+        'BEGIN:VEVENT',
+        'DTSTART:' + startDT,
+        'DTEND:'   + endDT,
+        'SUMMARY:SMB Owners Collective Quarterly Breakfast',
+        'DESCRIPTION:A quarterly breakfast and roundtable for Christian business owners.',
+        'LOCATION:Flatirons Community Church\\, 355 W South Boulder Rd\\, Lafayette\\, CO 80026',
+        'URL:https://www.redemptive.business/rsvp',
+        'END:VEVENT',
+        'END:VCALENDAR'
+      ].join('\r\n');
+
+      var blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+      document.getElementById('appleCalBtn').href = URL.createObjectURL(blob);
+    }
+
+    /* ── Submit ── */
+    function handleSubmit() {
+      if (!validate()) return;
+
+      var btn = document.getElementById('submitBtn');
+      btn.disabled = true;
+      btn.textContent = 'Submitting…';
+
+      var payload = {
+        firstName:   document.getElementById('firstName').value.trim(),
+        lastName:    document.getElementById('lastName').value.trim(),
+        company:     document.getElementById('company').value.trim(),
+        title:       document.getElementById('jobTitle').value.trim(),
+        email:       document.getElementById('email').value.trim(),
+        phone:       document.getElementById('phone').value.trim(),
+        smsReminder: document.getElementById('smsReminder').checked ? 'true' : 'false'
+      };
+
+      function showConfirm() {
+        buildCalendarLinks();
+        document.getElementById('regPage').style.display = 'none';
+        document.getElementById('confirmPage').style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      function showNetworkError() {
+        btn.disabled = false;
+        btn.textContent = 'Reserve my seat →';
+        var banner = document.getElementById('formErrorBanner');
+        document.getElementById('formErrorText').textContent =
+          'Something went wrong submitting your RSVP. Please check your connection and try again.';
+        banner.style.display = 'flex';
+        banner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+
+      if (!SHEETS_URL) {
+        setTimeout(showConfirm, 500);
+        return;
+      }
+
+      fetch(SHEETS_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(showConfirm)
+      .catch(showNetworkError);
+    }
+  </script>
+
+</body>
+</html>

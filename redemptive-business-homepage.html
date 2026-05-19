@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Redemptive Business</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,900;1,400;1,600&family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F5F0E8;
+    --warm-white: #FAF7F2;
+    --ink: #1C1814;
+    --ink-soft: #3D3530;
+    --amber: #C8782A;
+    --amber-light: #E8A855;
+    --amber-pale: #F5E4C8;
+    --olive: #4A5240;
+    --olive-light: #7A8C6A;
+    --clay: #A05A3A;
+    --dust: #B8A898;
+    --rule: #D8CDB8;
+    --serif: 'Playfair Display', Georgia, serif;
+    --body-serif: 'Lora', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: var(--cream);
+    color: var(--ink);
+    font-family: var(--body-serif);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* GRAIN TEXTURE OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 100;
+    opacity: 0.6;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 3rem;
+    background: rgba(245, 240, 232, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+    transition: all 0.3s ease;
+  }
+
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav-logo span {
+    color: var(--amber);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--amber); }
+
+  .nav-cta {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--warm-white) !important;
+    background: var(--ink);
+    padding: 0.6rem 1.4rem;
+    border-radius: 2px;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--amber) !important; color: var(--warm-white) !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6rem 4rem 6rem 5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.1s forwards;
+  }
+
+  .hero-eyebrow-line {
+    width: 40px;
+    height: 1px;
+    background: var(--amber);
+  }
+
+  .hero-eyebrow-text {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--amber);
+    font-weight: 500;
+  }
+
+  .hero-headline {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.9s ease 0.25s forwards;
+  }
+
+  .hero-headline em {
+    font-style: italic;
+    color: var(--amber);
+  }
+
+  .hero-sub {
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+    max-width: 440px;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeUp 0.9s ease 0.4s forwards;
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.9s ease 0.55s forwards;
+  }
+
+  .btn-primary {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--warm-white);
+    background: var(--amber);
+    padding: 1rem 2.2rem;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: all 0.2s;
+    box-shadow: 0 4px 20px rgba(200, 120, 42, 0.3);
+  }
+
+  .btn-primary:hover {
+    background: var(--clay);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(200, 120, 42, 0.4);
+  }
+
+  .btn-ghost {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--ink-soft);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.2s;
+  }
+
+  .btn-ghost:hover { color: var(--amber); }
+  .btn-ghost::after { content: '→'; transition: transform 0.2s; }
+  .btn-ghost:hover::after { transform: translateX(4px); }
+
+  .hero-scroll-hint {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    opacity: 0;
+    animation: fadeUp 0.9s ease 1s forwards;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--amber), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  .scroll-text {
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--dust);
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+
+  /* HERO RIGHT — editorial collage feel */
+  .hero-right {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-right-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 70% 30%, rgba(200, 120, 42, 0.12) 0%, transparent 60%),
+      radial-gradient(ellipse at 30% 80%, rgba(74, 82, 64, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .hero-quote-block {
+    position: relative;
+    width: 85%;
+    padding: 2rem 0;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.7s forwards;
+  }
+
+  .hero-quote-mark {
+    font-family: var(--serif);
+    font-size: 8rem;
+    line-height: 0.6;
+    color: var(--amber);
+    opacity: 0.25;
+    margin-bottom: -1rem;
+    display: block;
+  }
+
+  .hero-quote-text {
+    font-family: var(--serif);
+    font-size: 1.7rem;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--ink);
+    border-left: 3px solid var(--amber);
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-quote-attr {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--dust);
+    padding-left: 1.5rem;
+  }
+
+  /* decorative cross/grain element */
+  .hero-deco {
+    position: absolute;
+    bottom: 3rem;
+    right: 3rem;
+    width: 120px;
+    height: 120px;
+    opacity: 0.07;
+  }
+
+  /* VERSE BAND */
+  .verse-band {
+    background: var(--ink);
+    color: var(--amber-pale);
+    padding: 2.5rem 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .verse-band::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(200,120,42,0.08) 0%, transparent 50%);
+  }
+
+  .verse-icon {
+    font-size: 1.5rem;
+    opacity: 0.5;
+    flex-shrink: 0;
+  }
+
+  .verse-text {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-style: italic;
+    text-align: center;
+    line-height: 1.6;
+  }
+
+  .verse-ref {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-top: 0.4rem;
+    display: block;
+    text-align: center;
+  }
+
+  /* TENSION SECTION */
+  .tension {
+    padding: 8rem 5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .tension-label {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--amber);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .tension-label::before {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 1px;
+    background: var(--amber);
+  }
+
+  .tension-heading {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 3.5vw, 3.5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+
+  .tension-heading em {
+    font-style: italic;
+    color: var(--amber);
+  }
+
+  .tension-body {
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    line-height: 1.85;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Kingdom/divide diagram */
+  .divide-visual {
+    position: relative;
+    background: var(--warm-white);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .divide-half {
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+  }
+
+  .divide-half-label {
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 0.6rem;
+  }
+
+  .divide-half-title {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    font-weight: 700;
+  }
+
+  .divide-half-items {
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    color: var(--dust);
+    margin-top: 0.5rem;
+    line-height: 1.8;
+  }
+
+  .divide-top {
+    background: var(--amber-pale);
+    border-radius: 3px 3px 0 0;
+    border-bottom: 2px dashed var(--rule);
+  }
+
+  .divide-top .divide-half-label { color: var(--amber); }
+  .divide-top .divide-half-title { color: var(--amber); }
+
+  .divide-bottom {
+    background: #EEE8E0;
+    border-radius: 0 0 3px 3px;
+  }
+
+  .divide-bottom .divide-half-label { color: var(--olive); }
+  .divide-bottom .divide-half-title { color: var(--olive); }
+
+  .divide-x {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px;
+    height: 48px;
+    background: var(--ink);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    color: var(--amber);
+    font-weight: 900;
+    z-index: 5;
+    box-shadow: 0 4px 16px rgba(28,24,20,0.2);
+  }
+
+  .divide-caption {
+    text-align: center;
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    color: var(--dust);
+    margin-top: 1.25rem;
+    font-style: italic;
+  }
+
+  /* MAXIMS SECTION */
+  .maxims {
+    background: var(--ink);
+    padding: 8rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .maxims::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(200,120,42,0.1) 0%, transparent 70%);
+  }
+
+  .maxims-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .maxims-header {
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+
+  .maxims-eyebrow {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 1.25rem;
+    display: block;
+  }
+
+  .maxims-heading {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3vw, 3rem);
+    font-weight: 900;
+    color: var(--warm-white);
+    line-height: 1.15;
+  }
+
+  .maxims-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .maxim-card {
+    position: relative;
+    padding: 3rem;
+    border: 1px solid rgba(216, 205, 184, 0.12);
+    border-radius: 4px;
+    background: rgba(250, 247, 242, 0.03);
+    transition: border-color 0.3s, background 0.3s;
+  }
+
+  .maxim-card:hover {
+    border-color: rgba(200, 120, 42, 0.3);
+    background: rgba(200, 120, 42, 0.04);
+  }
+
+  .maxim-number {
+    font-family: var(--serif);
+    font-size: 5rem;
+    font-weight: 900;
+    color: var(--amber);
+    opacity: 0.15;
+    line-height: 1;
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+  }
+
+  .maxim-icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(200, 120, 42, 0.15);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.75rem;
+  }
+
+  .maxim-icon svg {
+    width: 22px;
+    height: 22px;
+    stroke: var(--amber);
+    fill: none;
+    stroke-width: 1.5;
+  }
+
+  .maxim-title {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--warm-white);
+    line-height: 1.3;
+    margin-bottom: 1rem;
+  }
+
+  .maxim-body {
+    font-family: var(--body-serif);
+    font-size: 0.95rem;
+    color: var(--dust);
+    line-height: 1.85;
+  }
+
+  /* ABOUT / VISION */
+  .vision {
+    padding: 8rem 5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 5fr 4fr;
+    gap: 7rem;
+    align-items: start;
+  }
+
+  .vision-body p {
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+  }
+
+  .vision-body p:first-of-type {
+    font-size: 1.3rem;
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .vision-sidebar {
+    position: sticky;
+    top: 8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .influence-card {
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 1.5rem;
+    background: var(--warm-white);
+  }
+
+  .influence-label {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--dust);
+    margin-bottom: 0.75rem;
+  }
+
+  .influence-name {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+  }
+
+  .influence-note {
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  /* IMAGE PLACEHOLDER */
+  .image-placeholder {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    background: var(--warm-white);
+    border: 1.5px dashed var(--rule);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 8rem;
+  }
+
+  .image-placeholder-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    color: var(--dust);
+  }
+
+  .image-placeholder-inner svg {
+    width: 48px;
+    height: 48px;
+    opacity: 0.5;
+  }
+
+  .image-placeholder-label {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--dust);
+  }
+
+  /* OFFERINGS SECTION */
+  .offerings {
+    background: var(--warm-white);
+    padding: 8rem 5rem;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .offerings-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    margin-bottom: 4rem;
+  }
+
+  .section-eyebrow {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--amber);
+    font-weight: 500;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-eyebrow::before {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 1px;
+    background: var(--amber);
+  }
+
+  .section-heading {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3vw, 3rem);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .offerings-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .offering-item {
+    background: var(--warm-white);
+    padding: 2.5rem;
+    transition: background 0.25s;
+    cursor: pointer;
+  }
+
+  .offering-item:hover {
+    background: var(--amber-pale);
+  }
+
+  .offering-tag {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 1.25rem;
+    font-weight: 500;
+  }
+
+  .offering-title {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+
+  .offering-desc {
+    font-family: var(--body-serif);
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    line-height: 1.75;
+  }
+
+  .offering-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--amber);
+    text-decoration: none;
+    margin-top: 1.25rem;
+    letter-spacing: 0.06em;
+    transition: gap 0.2s;
+  }
+
+  .offering-link:hover { gap: 0.7rem; }
+  .offering-link::after { content: '→'; }
+
+  /* CTA SECTION */
+  .cta-section {
+    padding: 8rem 5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(200, 120, 42, 0.08) 0%, transparent 70%);
+  }
+
+  .cta-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .cta-heading {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 4vw, 4rem);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-heading em {
+    font-style: italic;
+    color: var(--amber);
+  }
+
+  .cta-sub {
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+    line-height: 1.8;
+    margin-bottom: 3rem;
+  }
+
+  .email-form {
+    display: flex;
+    gap: 0;
+    max-width: 480px;
+    margin: 0 auto;
+    border: 1px solid var(--ink);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .email-input {
+    flex: 1;
+    padding: 1rem 1.25rem;
+    border: none;
+    background: var(--warm-white);
+    font-family: var(--sans);
+    font-size: 0.9rem;
+    color: var(--ink);
+    outline: none;
+  }
+
+  .email-input::placeholder { color: var(--dust); }
+
+  .email-btn {
+    padding: 1rem 1.75rem;
+    background: var(--ink);
+    color: var(--warm-white);
+    border: none;
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .email-btn:hover { background: var(--amber); }
+
+  .email-note {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    color: var(--dust);
+    margin-top: 1rem;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: var(--dust);
+    padding: 4rem 5rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 4rem;
+    border-top: 1px solid rgba(200,120,42,0.2);
+  }
+
+  .footer-brand .nav-logo {
+    display: block;
+    color: var(--warm-white);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+
+  .footer-tagline {
+    font-family: var(--body-serif);
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--dust);
+    line-height: 1.7;
+    max-width: 280px;
+  }
+
+  .footer-col-title {
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 1.25rem;
+    font-weight: 500;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .footer-links a {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    color: var(--dust);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--amber); }
+
+  .footer-bottom {
+    background: var(--ink);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 1.5rem 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-copy {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    color: rgba(184,168,152,0.5);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.1); }
+  }
+
+  /* scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-delay-1 { transition-delay: 0.15s; }
+  .reveal-delay-2 { transition-delay: 0.3s; }
+  .reveal-delay-3 { transition-delay: 0.45s; }
+
+  /* VERSE CAROUSEL */
+  .verse-carousel {
+    position: relative;
+    width: 85%;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.7s forwards;
+  }
+
+  .verse-carousel-track {
+    position: relative;
+    min-height: 280px;
+  }
+
+  .verse-slide {
+    display: none;
+    flex-direction: column;
+  }
+
+  .verse-slide.active {
+    display: flex;
+  }
+
+  .verse-carousel-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.75rem;
+    padding-left: 1.5rem;
+  }
+
+  .verse-prev, .verse-next {
+    background: none;
+    border: 1px solid var(--rule);
+    color: var(--ink-soft);
+    width: 32px;
+    height: 32px;
+    border-radius: 2px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    flex-shrink: 0;
+  }
+
+  .verse-prev:hover, .verse-next:hover {
+    background: var(--amber);
+    border-color: var(--amber);
+    color: var(--warm-white);
+  }
+
+  .verse-dots {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .verse-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--rule);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .verse-dot.active {
+    background: var(--amber);
+    transform: scale(1.3);
+  }
+
+  /* ANNOUNCEMENT BANNER */
+  .announcement-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    background: var(--ink);
+    border-bottom: 1px solid rgba(200, 120, 42, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0.65rem 2rem;
+    text-align: center;
+  }
+
+  .announcement-banner-text {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    color: var(--amber-pale);
+  }
+
+  .announcement-banner-text strong {
+    font-weight: 600;
+    color: var(--amber-light);
+  }
+
+  .announcement-banner-link {
+    font-family: var(--sans);
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: var(--amber);
+    padding: 0.3rem 0.9rem;
+    border-radius: 2px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s;
+    flex-shrink: 0;
+  }
+
+  .announcement-banner-link:hover {
+    background: var(--amber-light);
+  }
+
+  .announcement-banner-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--amber);
+    opacity: 0.6;
+    flex-shrink: 0;
+  }
+
+  /* Push nav and content down to account for banner */
+  nav {
+    top: 2.35rem !important;
+  }
+
+  .hero {
+    padding-top: 8.5rem !important;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BANNER -->
+<div class="announcement-banner">
+  <span class="announcement-banner-dot"></span>
+  <p class="announcement-banner-text">
+    <strong>Aug 21</strong> &nbsp;·&nbsp; Register for our Quarterly SMB Collective Breakfast
+  </p>
+  <a href="RSVP/rsvp.html" class="announcement-banner-link">Register Now</a>
+  <span class="announcement-banner-dot"></span>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Redemptive<span>.</span>Business</a>
+  <ul class="nav-links">
+    <li><a href="#vision">The Vision</a></li>
+    <li><a href="#maxims">Our Maxims</a></li>
+    <li><a href="#offerings">Resources</a></li>
+    <li><a href="#community">Community</a></li>
+    <li><a href="#join" class="nav-cta">Join Us</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-line"></span>
+      <span class="hero-eyebrow-text">For the Christ-following business owner</span>
+    </div>
+    <h1 class="hero-headline">
+      The Kingdom<br>is <em>already</em><br>here.
+    </h1>
+    <p class="hero-sub">
+      Your business is not a distraction from your faith. It is the very place where the kingdom of God becomes visible. We exist to help you close the gap between Sunday and Monday.
+    </p>
+    <div class="hero-actions">
+      <a href="#join" class="btn-primary">Start Here</a>
+      <a href="#vision" class="btn-ghost">Learn the vision</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-right-bg"></div>
+    <div class="verse-carousel" id="verseCarousel">
+      <div class="verse-carousel-track" id="verseTrack">
+
+        <div class="verse-slide active">
+          <span class="hero-quote-mark">"</span>
+          <blockquote class="hero-quote-text">
+            For what does it profit a man to gain the whole world and forfeit his soul?
+          </blockquote>
+          <cite class="hero-quote-attr">Mark 8:36 · ESV</cite>
+        </div>
+
+        <div class="verse-slide">
+          <span class="hero-quote-mark">"</span>
+          <blockquote class="hero-quote-text">
+            Being asked by the Pharisees when the kingdom of God would come, he answered them, "The kingdom of God is not coming in ways that can be observed, nor will they say, 'Look, here it is!' or 'There!' for behold, the kingdom of God is in the midst of you."
+          </blockquote>
+          <cite class="hero-quote-attr">Luke 17:20–21 · ESV</cite>
+        </div>
+
+        <div class="verse-slide">
+          <span class="hero-quote-mark">"</span>
+          <blockquote class="hero-quote-text">
+            Whatever you do, work heartily, as for the Lord and not for men.
+          </blockquote>
+          <cite class="hero-quote-attr">Colossians 3:23 · ESV</cite>
+        </div>
+
+      </div>
+
+      <div class="verse-carousel-controls">
+        <button class="verse-prev" onclick="verseNav(-1)" aria-label="Previous verse">&#8592;</button>
+        <div class="verse-dots" id="verseDots">
+          <span class="verse-dot active" onclick="verseTo(0)"></span>
+          <span class="verse-dot" onclick="verseTo(1)"></span>
+          <span class="verse-dot" onclick="verseTo(2)"></span>
+        </div>
+        <button class="verse-next" onclick="verseNav(1)" aria-label="Next verse">&#8594;</button>
+      </div>
+    </div>
+
+    <!-- Cross SVG decoration -->
+    <svg class="hero-deco" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="10" x2="60" y2="110" stroke="#C8782A" stroke-width="3"/>
+      <line x1="20" y1="40" x2="100" y2="40" stroke="#C8782A" stroke-width="3"/>
+    </svg>
+  </div>
+
+  <div class="hero-scroll-hint">
+    <span class="scroll-line"></span>
+    <span class="scroll-text">Scroll to explore</span>
+  </div>
+</section>
+
+
+<!-- TENSION SECTION -->
+<section class="tension" id="vision">
+  <div>
+    <p class="tension-label">The problem we address</p>
+    <h2 class="tension-heading">Living as if the kingdom <em>hasn't</em> arrived.</h2>
+    <p class="tension-body">
+      Most Christ-following business owners carry a silent tension. On Sunday, the kingdom feels real and present. On Monday, the office, the profit margins, the difficult employees — these feel like a different world entirely. So we compartmentalize.
+    </p>
+    <p class="tension-body">
+      We treat sacred and secular as two separate realms with a wall between them. Business belongs to one side. Faith belongs to the other. But Jesus never made that distinction. He announced that the kingdom of God is <em>here</em> — not coming someday, but present and active, pressing into every corner of ordinary life.
+    </p>
+    <p class="tension-body">
+      Redemptive Business exists to tear down that wall — to help you lead your team, build your company, and serve your customers as a full expression of kingdom life.
+    </p>
+  </div>
+
+  <div class="reveal">
+    <div class="divide-visual">
+      <div class="divide-half divide-top">
+        <p class="divide-half-label">Sacred</p>
+        <p class="divide-half-title">Sunday World</p>
+        <p class="divide-half-items">Worship · Prayer · Scripture<br>Community · Service</p>
+      </div>
+      <div class="divide-x">×</div>
+      <div class="divide-half divide-bottom">
+        <p class="divide-half-label">Secular</p>
+        <p class="divide-half-title">Monday World</p>
+        <p class="divide-half-items">Revenue · Margins · Hiring<br>Clients · Operations</p>
+      </div>
+    </div>
+    <p class="divide-caption">The false divide we were never meant to live inside.</p>
+  </div>
+</section>
+
+<!-- MAXIMS SECTION -->
+<section class="maxims" id="maxims">
+  <div class="maxims-inner">
+    <div class="maxims-header reveal">
+      <span class="maxims-eyebrow">Two convictions that change everything</span>
+      <h2 class="maxims-heading">Our Leadership Maxims</h2>
+    </div>
+
+    <div class="maxims-grid">
+      <div class="maxim-card reveal reveal-delay-1">
+        <span class="maxim-number">01</span>
+        <div class="maxim-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <h3 class="maxim-title">All real leadership is servant leadership.</h3>
+        <p class="maxim-body">
+          Leaders who do not lead as a servant — as Jesus did — are not truly leaders worth following. Authority exercised without love and sacrifice is mere power. Jesus redefined leadership entirely: the greatest among you shall be your servant. Your title on an org chart means nothing. How you show up for your people means everything.
+        </p>
+      </div>
+
+      <div class="maxim-card reveal reveal-delay-2">
+        <span class="maxim-number">02</span>
+        <div class="maxim-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <h3 class="maxim-title">All formation is spiritual formation.</h3>
+        <p class="maxim-body">
+          Everything you do is either forming you into the image of Christ — or it is not. There is no neutral ground. The decisions you make in your business, the habits you build, the culture you create: all of it is shaping your soul and the souls of those around you. The question is not whether you are being formed, but into whose image.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION BODY -->
+<section class="vision">
+  <div class="vision-body">
+    <div class="tension-label" style="margin-bottom:1.5rem;">About this work</div>
+    <h2 class="section-heading" style="margin-bottom:2rem;">Built for the ordinary<br>business owner.</h2>
+    <p>
+      You did not start your business to get rich. You started it because you saw a need, you had a gift, and you wanted to make something — to do meaningful work. That impulse is holy. It is a reflection of the Creator in you.
+    </p>
+    <p>
+      But running a business is hard. The margin pressures, the personnel challenges, the loneliness of leadership — these are real. And when the pressure builds, it is easy to set aside your deepest convictions and simply survive.
+    </p>
+    <p>
+      Redemptive Business is a community and a resource library built for small business owners who are serious about following Jesus, serious about their craft, and serious about integrating the two. We draw from the best thinkers at the intersection of faith, work, and culture — including John Mark Comer's theology of place and presence and Andy Crouch's vision of culture-making — and we apply it practically to the lives of real business owners.
+    </p>
+    <p>
+      This is not a prosperity gospel. We are not promising that following Jesus will make your business successful. We are promising something better: that doing business as a follower of Jesus can be an act of worship, a witness to your community, and a means of genuine human flourishing.
+    </p>
+  </div>
+
+  <div class="vision-sidebar reveal">
+    <div class="image-placeholder">
+      <div class="image-placeholder-inner">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="10" width="36" height="28" rx="2" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="17" cy="22" r="4" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M6 32l10-8 7 6 6-5 13 11" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+        </svg>
+        <p class="image-placeholder-label">Image coming soon</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFERINGS -->
+<section class="offerings" id="offerings">
+  <div class="offerings-inner">
+    <div class="section-header reveal">
+      <p class="section-eyebrow">What we offer</p>
+      <h2 class="section-heading">Resources for the whole journey.</h2>
+    </div>
+    <div class="offerings-grid reveal">
+      <div class="offering-item">
+        <p class="offering-tag">Field Guide</p>
+        <h3 class="offering-title">Monday Morning Theology</h3>
+        <p class="offering-desc">A weekly dispatch that takes real business situations and asks: what would it look like to navigate this as a follower of Jesus? Practical. Honest. Grounded in Scripture.</p>
+        <a href="#" class="offering-link">Subscribe</a>
+      </div>
+      <div class="offering-item">
+        <p class="offering-tag">Coaching</p>
+        <h3 class="offering-title">One-on-One Conversations</h3>
+        <p class="offering-desc">For owners who want a thinking partner — someone who takes both their business and their faith seriously and helps connect the two. No agenda. Just clarity.</p>
+        <a href="#" class="offering-link">Book a call</a>
+      </div>
+      <div class="offering-item">
+        <p class="offering-tag">Peer Advisory</p>
+        <h3 class="offering-title">Peer Advisory Groups</h3>
+        <p class="offering-desc">Small, confidential cohorts of Christ-following business owners who meet regularly to pray, wrestle with real challenges, and sharpen one another. Facilitated through <strong>Truth at Work</strong> — a proven model for peer advisory built around kingdom values.</p>
+        <a href="https://truthatwork.org" target="_blank" class="offering-link">Learn about Truth at Work</a>
+      </div>
+      <div class="offering-item">
+        <p class="offering-tag">Formation</p>
+        <h3 class="offering-title">Practicing the Way</h3>
+        <p class="offering-desc">Spiritual formation for leaders — built not for monks, but for people with payroll, clients, and a full calendar. We partner with Practicing the Way to help you apprentice under Jesus in the ordinary rhythms of business life.</p>
+        <a href="https://practicingtheway.org" target="_blank" class="offering-link">Visit Practicing the Way</a>
+      </div>
+      <div class="offering-item">
+        <p class="offering-tag">Foundation</p>
+        <h3 class="offering-title">Praxis Redemptive Business Framework</h3>
+        <p class="offering-desc">A theological and practical foundation for understanding why your business matters eternally — and how to lead it accordingly. Built on the Praxis framework for redemptive entrepreneurship.</p>
+        <a href="https://praxislabs.org" target="_blank" class="offering-link">Explore Praxis</a>
+      </div>
+      <div class="offering-item">
+        <p class="offering-tag">Library</p>
+        <h3 class="offering-title">Resource Library</h3>
+        <p class="offering-desc">A curated collection of essays, books, courses, and frameworks for the Christ-following business owner — including the Practicing the Way curriculum, the Praxis Redemptive Business Framework, and much more.</p>
+        <a href="library.html" class="offering-link">Browse the library</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="join">
+  <div class="cta-inner reveal">
+    <h2 class="cta-heading">
+      Start living like<br>the kingdom is <em>here</em>.
+    </h2>
+    <p class="cta-sub">
+      Join a growing community of small business owners who are done compartmentalizing their faith — and ready to run their companies as acts of worship.
+    </p>
+    <div class="email-form">
+      <input type="email" class="email-input" placeholder="Your email address">
+      <button class="email-btn">Join us</button>
+    </div>
+    <p class="email-note">No spam. Just encouragement, theology, and practical wisdom. Unsubscribe any time.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <a href="#" class="nav-logo">Redemptive<span style="color:var(--amber)">.</span>Business</a>
+    <p class="footer-tagline">For the Christ-following business owner who refuses to leave their faith at the door.</p>
+  </div>
+  <div>
+    <p class="footer-col-title">Explore</p>
+    <ul class="footer-links">
+      <li><a href="#">The Vision</a></li>
+      <li><a href="#">Our Maxims</a></li>
+      <li><a href="#">Resources</a></li>
+      <li><a href="#">Community</a></li>
+      <li><a href="#">Essays</a></li>
+    </ul>
+  </div>
+  <div>
+    <p class="footer-col-title">Connect</p>
+    <ul class="footer-links">
+      <li><a href="#">Newsletter</a></li>
+      <li><a href="#">Peer Circles</a></li>
+      <li><a href="#">Coaching</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <p class="footer-copy">© 2025 Redemptive Business. All rights reserved.</p>
+  <p class="footer-copy">Built for the glory of God and the good of small business owners.</p>
+</div>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  reveals.forEach(el => observer.observe(el));
+
+  // Nav shadow on scroll
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.boxShadow = window.scrollY > 20
+      ? '0 2px 24px rgba(28,24,20,0.08)'
+      : 'none';
+  });
+</script>
+<script>
+  let verseIndex = 0;
+  const slides = document.querySelectorAll('.verse-slide');
+  const dots = document.querySelectorAll('.verse-dot');
+
+  function verseTo(n) {
+    slides[verseIndex].classList.remove('active');
+    dots[verseIndex].classList.remove('active');
+    verseIndex = (n + slides.length) % slides.length;
+    slides[verseIndex].classList.add('active');
+    dots[verseIndex].classList.add('active');
+  }
+
+  function verseNav(dir) { verseTo(verseIndex + dir); }
+
+  // Auto-advance every 7 seconds
+  setInterval(() => verseNav(1), 7000);
+</script>
+</body>
+</html>

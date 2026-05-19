@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resource Library — Redemptive Business</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,900;1,400;1,600&family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F5F0E8;
+    --warm-white: #FAF7F2;
+    --ink: #1C1814;
+    --ink-soft: #3D3530;
+    --amber: #C8782A;
+    --amber-light: #E8A855;
+    --amber-pale: #F5E4C8;
+    --olive: #4A5240;
+    --olive-light: #7A8C6A;
+    --clay: #A05A3A;
+    --dust: #B8A898;
+    --rule: #D8CDB8;
+    --serif: 'Playfair Display', Georgia, serif;
+    --body-serif: 'Lora', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: var(--cream);
+    color: var(--ink);
+    font-family: var(--body-serif);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 100;
+    opacity: 0.6;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 3rem;
+    background: rgba(245, 240, 232, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--amber); }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--amber); }
+
+  .nav-cta {
+    color: var(--warm-white) !important;
+    background: var(--ink);
+    padding: 0.6rem 1.4rem;
+    border-radius: 2px;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--amber) !important; }
+
+  /* PAGE HEADER */
+  .page-header {
+    padding: 10rem 5rem 5rem;
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: end;
+  }
+
+  .page-header-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .page-header-eyebrow-line {
+    width: 30px;
+    height: 1px;
+    background: var(--amber);
+  }
+
+  .page-header-eyebrow-text {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--amber);
+    font-weight: 500;
+  }
+
+  .page-title {
+    font-family: var(--serif);
+    font-size: clamp(2.8rem, 5vw, 5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+
+  .page-title em {
+    font-style: italic;
+    color: var(--amber);
+  }
+
+  .page-intro {
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+    line-height: 1.85;
+    max-width: 480px;
+    align-self: end;
+    padding-bottom: 0.25rem;
+  }
+
+  /* MAIN CONTENT */
+  .library-body {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 5rem;
+  }
+
+  /* CATEGORY */
+  .resource-category {
+    margin-bottom: 5rem;
+  }
+
+  .category-header {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .category-label {
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--amber);
+    font-weight: 500;
+  }
+
+  .category-title {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .category-count {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    color: var(--dust);
+    margin-left: auto;
+  }
+
+  /* RESOURCE CARDS */
+  .resource-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .resource-card {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: start;
+    background: var(--warm-white);
+    padding: 2rem 2.25rem;
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.2s;
+  }
+
+  .resource-card:hover {
+    background: var(--amber-pale);
+  }
+
+  .resource-card-tag {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--amber);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  .resource-card-name {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .resource-card-desc {
+    font-family: var(--sans);
+    font-size: 0.875rem;
+    color: var(--ink-soft);
+    line-height: 1.7;
+  }
+
+  .resource-card-arrow {
+    font-size: 1.1rem;
+    color: var(--amber);
+    opacity: 0.5;
+    padding-top: 0.25rem;
+    transition: opacity 0.2s, transform 0.2s;
+    flex-shrink: 0;
+  }
+
+  .resource-card:hover .resource-card-arrow {
+    opacity: 1;
+    transform: translate(3px, -3px);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: var(--dust);
+    padding: 4rem 5rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 4rem;
+    border-top: 1px solid rgba(200,120,42,0.2);
+  }
+
+  .footer-brand .nav-logo {
+    display: block;
+    color: var(--warm-white);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+
+  .footer-tagline {
+    font-family: var(--body-serif);
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--dust);
+    line-height: 1.7;
+    max-width: 280px;
+  }
+
+  .footer-col-title {
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 1.25rem;
+    font-weight: 500;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .footer-links a {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    color: var(--dust);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--amber); }
+
+  .footer-bottom {
+    background: var(--ink);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 1.5rem 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-copy {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    color: rgba(184,168,152,0.5);
+  }
+
+  /* REVEAL */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="redemptive-business-homepage.html" class="nav-logo">Redemptive<span>.</span>Business</a>
+  <ul class="nav-links">
+    <li><a href="redemptive-business-homepage.html#vision">The Vision</a></li>
+    <li><a href="redemptive-business-homepage.html#maxims">Our Maxims</a></li>
+    <li><a href="redemptive-business-homepage.html#offerings">Resources</a></li>
+    <li><a href="redemptive-business-homepage.html#community">Community</a></li>
+    <li><a href="redemptive-business-homepage.html#join" class="nav-cta">Join Us</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div>
+    <div class="page-header-eyebrow">
+      <span class="page-header-eyebrow-line"></span>
+      <span class="page-header-eyebrow-text">For the Christ-following business owner</span>
+    </div>
+    <h1 class="page-title">Resource<br><em>Library</em></h1>
+  </div>
+  <p class="page-intro">A curated collection of organizations, frameworks, and communities at the intersection of Christian faith and business. These are the voices and resources we trust and return to.</p>
+</div>
+
+<!-- LIBRARY BODY -->
+<div class="library-body">
+
+  <!-- FRAMEWORKS & ORGANIZATIONS -->
+  <div class="resource-category reveal">
+    <div class="category-header">
+      <span class="category-label">Frameworks & Organizations</span>
+      <span class="category-title">Places to go deeper</span>
+      <span class="category-count">3 resources</span>
+    </div>
+    <div class="resource-list">
+
+      <a href="https://praxislabs.org" target="_blank" class="resource-card">
+        <div>
+          <p class="resource-card-tag">Redemptive Entrepreneurship</p>
+          <p class="resource-card-name">Praxis Labs</p>
+          <p class="resource-card-desc">A community of redemptive entrepreneurs, executives, and investors building ventures that serve the common good. Praxis equips faith-driven leaders with frameworks, cohorts, and a theology of business-as-mission. Their Redemptive Business framework is one of the most rigorous tools available for integrating faith into the strategy and culture of a company.</p>
+        </div>
+        <span class="resource-card-arrow">↗</span>
+      </a>
+
+      <a href="https://www.faithdrivenentrepreneur.org" target="_blank" class="resource-card">
+        <div>
+          <p class="resource-card-tag">Community & Podcast</p>
+          <p class="resource-card-name">Faith Driven Entrepreneur</p>
+          <p class="resource-card-desc">A global movement helping entrepreneurs integrate their faith into every part of their business. Offers a widely listened-to podcast, local peer groups, and practical content for owners who believe their work is an act of worship. A great entry point if you are just beginning to explore faith and work.</p>
+        </div>
+        <span class="resource-card-arrow">↗</span>
+      </a>
+
+      <a href="https://www.theologyofwork.org" target="_blank" class="resource-card">
+        <div>
+          <p class="resource-card-tag">Biblical Reference</p>
+          <p class="resource-card-name">Theology of Work Project</p>
+          <p class="resource-card-desc">A comprehensive, peer-reviewed biblical commentary on work, economics, and vocation — exploring every book of the Bible through the lens of work. An indispensable reference for anyone serious about understanding what Scripture actually says about how we spend most of our waking hours. Free and fully available online.</p>
+        </div>
+        <span class="resource-card-arrow">↗</span>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- FORMATION -->
+  <div class="resource-category reveal reveal-delay-1">
+    <div class="category-header">
+      <span class="category-label">Spiritual Formation</span>
+      <span class="category-title">Becoming who you lead</span>
+      <span class="category-count">1 resource</span>
+    </div>
+    <div class="resource-list">
+
+      <a href="https://practicingtheway.org" target="_blank" class="resource-card">
+        <div>
+          <p class="resource-card-tag">Formation Curriculum</p>
+          <p class="resource-card-name">Practicing the Way</p>
+          <p class="resource-card-desc">John Mark Comer's formation curriculum for apprenticing under Jesus in the ordinary rhythms of daily life. Not built for monks — built for people with full calendars, hard decisions, and teams depending on them. If all formation is spiritual formation, this is where you start.</p>
+        </div>
+        <span class="resource-card-arrow">↗</span>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- PEER ADVISORY -->
+  <div class="resource-category reveal reveal-delay-2">
+    <div class="category-header">
+      <span class="category-label">Peer Advisory</span>
+      <span class="category-title">You were not meant to lead alone</span>
+      <span class="category-count">1 resource</span>
+    </div>
+    <div class="resource-list">
+
+      <a href="https://truthatwork.org" target="_blank" class="resource-card">
+        <div>
+          <p class="resource-card-tag">Peer Groups</p>
+          <p class="resource-card-name">Truth at Work</p>
+          <p class="resource-card-desc">A proven model for peer advisory groups built around kingdom values. Truth at Work brings together small cohorts of Christ-following business owners for confidential, facilitated conversations about the real challenges of leadership — grounded in Scripture and sharpened by community.</p>
+        </div>
+        <span class="resource-card-arrow">↗</span>
+      </a>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <a href="redemptive-business-homepage.html" class="nav-logo">Redemptive<span style="color:var(--amber)">.</span>Business</a>
+    <p class="footer-tagline">For the Christ-following business owner who refuses to leave their faith at the door.</p>
+  </div>
+  <div>
+    <p class="footer-col-title">Explore</p>
+    <ul class="footer-links">
+      <li><a href="redemptive-business-homepage.html#vision">The Vision</a></li>
+      <li><a href="redemptive-business-homepage.html#maxims">Our Maxims</a></li>
+      <li><a href="redemptive-business-homepage.html#offerings">Resources</a></li>
+      <li><a href="redemptive-business-homepage.html#community">Community</a></li>
+      <li><a href="#">Essays</a></li>
+    </ul>
+  </div>
+  <div>
+    <p class="footer-col-title">Connect</p>
+    <ul class="footer-links">
+      <li><a href="#">Newsletter</a></li>
+      <li><a href="#">Peer Circles</a></li>
+      <li><a href="#">Coaching</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <p class="footer-copy">© 2025 Redemptive Business. All rights reserved.</p>
+  <p class="footer-copy">Built for the glory of God and the good of small business owners.</p>
+</div>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.boxShadow = window.scrollY > 20 ? '0 2px 24px rgba(28,24,20,0.08)' : 'none';
+  });
+</script>
+</body>
+</html>

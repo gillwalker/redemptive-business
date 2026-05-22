@@ -212,6 +212,7 @@
   }
 
   .resource-card {
+    position: relative;
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 2rem;
@@ -446,20 +447,24 @@
     </div>
     <div class="resource-list">
 
-      <a href="https://truthatwork.org" target="_blank" class="resource-card">
-        <div>
-          <p class="resource-card-tag">Peer Groups</p>
-          <p class="resource-card-name">Truth at Work</p>
-          <p class="resource-card-desc">A proven model for peer advisory groups built around kingdom values. Truth at Work brings together small cohorts of Christ-following business owners for confidential, facilitated conversations about the real challenges of leadership — grounded in Scripture and sharpened by community.</p>
+      <div class="resource-card" style="display:block;">
+        <p class="resource-card-tag">Peer Groups</p>
+        <a href="https://truthatwork.org" target="_blank" class="resource-card-name" style="display:block; text-decoration:none; color:inherit;">Truth at Work ↗</a>
+        <div style="display:flex; align-items:flex-start; gap:1.75rem; margin-top:0.75rem;">
+          <img src="Truth_at_Work_-_LogoBlue_transparent.png" alt="Truth at Work logo" style="width:110px; height:auto; object-fit:contain; flex-shrink:0;">
+          <div>
+            <p class="resource-card-desc">A proven model for peer advisory groups built around kingdom values. Truth at Work brings together small cohorts of Christ-following business owners for confidential, facilitated conversations about the real challenges of leadership — grounded in Scripture and sharpened by community.</p>
+            <a href="https://calendly.com/leveragedeffect/30-minute-zoom-meeting" target="_blank" class="resource-card-desc" style="display:block; margin-top:0.5rem; color:var(--amber); text-decoration:none;">Schedule a conversation ↗</a>
+          </div>
         </div>
-        <span class="resource-card-arrow">↗</span>
-      </a>
+      </div>
 
     </div>
   </div>
 
 </div>
 
+<!-- FOOTER -->
 <!-- FOOTER -->
 <footer>
   <div class="footer-brand">

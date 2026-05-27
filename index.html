@@ -721,6 +721,114 @@
     color: var(--dust);
   }
 
+  /* DISTINCTIVES CARD */
+  .distinctives-card {
+    background: var(--warm-white);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 2.25rem;
+    position: sticky;
+    top: 8rem;
+  }
+
+  .distinctives-header {
+    margin-bottom: 1.75rem;
+  }
+
+  .distinctives-eyebrow {
+    display: block;
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 0.6rem;
+  }
+
+  .distinctives-title {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--ink);
+  }
+
+  .distinctives-group {
+    margin-bottom: 1.25rem;
+  }
+
+  .distinctives-group-label {
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--dust);
+    margin-bottom: 0.85rem;
+  }
+
+  .distinctives-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: item 0;
+  }
+
+  .distinctives-list[start="3"] {
+    counter-reset: item 2;
+  }
+
+  .distinctives-list li {
+    font-family: var(--body-serif);
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    padding: 0.55rem 0 0.55rem 2rem;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+    counter-increment: item;
+  }
+
+  .distinctives-list li:last-child {
+    border-bottom: none;
+  }
+
+  .distinctives-list li::before {
+    content: counter(item);
+    position: absolute;
+    left: 0;
+    top: 0.55rem;
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--amber);
+    width: 1.4rem;
+    text-align: right;
+  }
+
+  .distinctives-rule {
+    height: 1px;
+    background: var(--rule);
+    margin: 1.25rem 0;
+  }
+
+  .distinctives-source {
+    display: inline-block;
+    margin-top: 1.5rem;
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    color: var(--dust);
+    text-decoration: none;
+    transition: color 0.2s;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 1px;
+  }
+
+  .distinctives-source:hover {
+    color: var(--amber);
+    border-color: var(--amber);
+  }
+
   /* OFFERINGS SECTION */
   .offerings {
     background: var(--warm-white);
@@ -769,7 +877,7 @@
 
   .offerings-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 2px;
     background: var(--rule);
     border: 1px solid var(--rule);
@@ -1096,23 +1204,23 @@
   /* ANNOUNCEMENT BANNER */
   .announcement-banner {
     position: fixed;
-    top: 0;
+    top: 4.5rem;
     left: 0;
     right: 0;
-    z-index: 200;
+    z-index: 40;
     background: var(--ink);
-    border-bottom: 1px solid rgba(200, 120, 42, 0.4);
+    border-bottom: 2px solid rgba(200, 120, 42, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
-    padding: 0.65rem 2rem;
+    gap: 1.25rem;
+    padding: 1.1rem 2rem;
     text-align: center;
   }
 
   .announcement-banner-text {
     font-family: var(--sans);
-    font-size: 0.78rem;
+    font-size: 0.92rem;
     font-weight: 400;
     letter-spacing: 0.06em;
     color: var(--amber-pale);
@@ -1125,13 +1233,13 @@
 
   .announcement-banner-link {
     font-family: var(--sans);
-    font-size: 0.76rem;
+    font-size: 0.82rem;
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--ink);
     background: var(--amber);
-    padding: 0.3rem 0.9rem;
+    padding: 0.5rem 1.2rem;
     border-radius: 2px;
     text-decoration: none;
     white-space: nowrap;
@@ -1144,21 +1252,16 @@
   }
 
   .announcement-banner-dot {
-    width: 5px;
-    height: 5px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
     background: var(--amber);
     opacity: 0.6;
     flex-shrink: 0;
   }
 
-  /* Push nav and content down to account for banner */
-  nav {
-    top: 2.35rem !important;
-  }
-
   .hero {
-    padding-top: 8.5rem !important;
+    padding-top: 12rem !important;
   }
 
 </style>
@@ -1255,10 +1358,7 @@
     </svg>
   </div>
 
-  <div class="hero-scroll-hint">
-    <span class="scroll-line"></span>
-    <span class="scroll-text">Scroll to explore</span>
-  </div>
+
 </section>
 
 
@@ -1350,15 +1450,33 @@
   </div>
 
   <div class="vision-sidebar reveal">
-    <div class="image-placeholder">
-      <div class="image-placeholder-inner">
-        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="6" y="10" width="36" height="28" rx="2" stroke="currentColor" stroke-width="1.5"/>
-          <circle cx="17" cy="22" r="4" stroke="currentColor" stroke-width="1.5"/>
-          <path d="M6 32l10-8 7 6 6-5 13 11" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-        </svg>
-        <p class="image-placeholder-label">Image coming soon</p>
+    <div class="distinctives-card">
+      <div class="distinctives-header">
+        <span class="distinctives-eyebrow">A Framework for the Work</span>
+        <h3 class="distinctives-title">10 Distinctives of a Kingdom Business</h3>
       </div>
+
+      <p class="distinctives-group-label">Foundational Business Principles</p>
+      <ol class="distinctives-list">
+        <li>Strives to be profitable and sustainable in the long run.</li>
+        <li>Strives for excellence, operates with integrity, and has a system of accountability.</li>
+      </ol>
+
+      <div class="distinctives-rule"></div>
+
+      <p class="distinctives-group-label">Business As Mission Distinctives</p>
+      <ol class="distinctives-list" start="3">
+        <li>Has a kingdom motivation, purpose, and plan that is shared and embraced by senior management and owners.</li>
+        <li>Aims at holistic transformation of individuals and communities.</li>
+        <li>Seeks the holistic welfare of employees.</li>
+        <li>Seeks to maximize the kingdom impact of its financial and non-financial resources.</li>
+        <li>Models Christ-like, servant leadership, and develops it in others.</li>
+        <li>Intentionally implements ethical, Christ-honoring practice that does not conflict with the gospel.</li>
+        <li>Is pro-active in intercession and seeks the prayer support of others.</li>
+        <li>Seeks to harness the power of networking with like-minded organizations.</li>
+      </ol>
+
+      <a href="https://lausanne.org/occasional-paper/business-mission-lop-59" target="_blank" class="distinctives-source">Lausanne Occasional Paper &middot; Business as Mission</a>
     </div>
   </div>
 </section>
@@ -1381,25 +1499,16 @@
         <p class="offering-tag">Coaching</p>
         <h3 class="offering-title">One-on-One Conversations</h3>
         <p class="offering-desc">For owners who want a thinking partner — someone who takes both their business and their faith seriously and helps connect the two. No agenda. Just clarity.</p>
-        <a href="#" class="offering-link">Book a call</a>
+        <a href="https://calendly.com/leveragedeffect/30-minute-zoom-meeting" target="_blank" class="offering-link">Book a call</a>
       </div>
       <div class="offering-item">
         <p class="offering-tag">Peer Advisory</p>
         <h3 class="offering-title">Peer Advisory Groups</h3>
         <p class="offering-desc">Small, confidential cohorts of Christ-following business owners who meet regularly to pray, wrestle with real challenges, and sharpen one another. Facilitated through <strong>Truth at Work</strong> — a proven model for peer advisory built around kingdom values.</p>
-        <a href="https://truthatwork.org" target="_blank" class="offering-link">Learn about Truth at Work</a>
-      </div>
-      <div class="offering-item">
-        <p class="offering-tag">Formation</p>
-        <h3 class="offering-title">Practicing the Way</h3>
-        <p class="offering-desc">Spiritual formation for leaders — built not for monks, but for people with payroll, clients, and a full calendar. We partner with Practicing the Way to help you apprentice under Jesus in the ordinary rhythms of business life.</p>
-        <a href="https://practicingtheway.org" target="_blank" class="offering-link">Visit Practicing the Way</a>
-      </div>
-      <div class="offering-item">
-        <p class="offering-tag">Foundation</p>
-        <h3 class="offering-title">Praxis Redemptive Business Framework</h3>
-        <p class="offering-desc">A theological and practical foundation for understanding why your business matters eternally — and how to lead it accordingly. Built on the Praxis framework for redemptive entrepreneurship.</p>
-        <a href="https://praxislabs.org" target="_blank" class="offering-link">Explore Praxis</a>
+        <div style="display:flex; flex-direction:column; gap:0.25rem;">
+          <a href="https://truthatwork.org" target="_blank" class="offering-link">Learn about Truth at Work</a>
+          <a href="https://calendly.com/leveragedeffect/30-minute-zoom-meeting" target="_blank" class="offering-link">Schedule a conversation</a>
+        </div>
       </div>
       <div class="offering-item">
         <p class="offering-tag">Library</p>
@@ -1421,10 +1530,56 @@
       Join a growing community of small business owners who are done compartmentalizing their faith — and ready to run their companies as acts of worship.
     </p>
     <div class="email-form">
-      <input type="email" class="email-input" placeholder="Your email address">
-      <button class="email-btn">Join us</button>
+      <input type="email" class="email-input" id="join-email" placeholder="Your email address">
+      <button class="email-btn" id="join-btn" onclick="handleSubscribe()">Join us</button>
     </div>
-    <p class="email-note">No spam. Just encouragement, theology, and practical wisdom. Unsubscribe any time.</p>
+    <p class="email-note" id="join-msg">No spam. Just encouragement, theology, and practical wisdom. Unsubscribe any time.</p>
+
+    <script>
+      async function handleSubscribe() {
+        const emailInput = document.getElementById("join-email");
+        const btn = document.getElementById("join-btn");
+        const msg = document.getElementById("join-msg");
+        const email = emailInput.value.trim();
+
+        if (!email || !email.includes("@")) {
+          msg.textContent = "Please enter a valid email address.";
+          msg.style.color = "var(--clay)";
+          return;
+        }
+
+        btn.textContent = "Joining...";
+        btn.disabled = true;
+
+        try {
+          const response = await fetch("https://mailchimp-subscribe.gill-c11.workers.dev", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email }),
+          });
+
+          const result = await response.json();
+
+          if (response.ok) {
+            emailInput.style.display = "none";
+            btn.style.display = "none";
+            msg.textContent = "You're in. Welcome to the community.";
+            msg.style.color = "var(--amber-light)";
+            msg.style.fontSize = "1rem";
+          } else {
+            btn.textContent = "Join us";
+            btn.disabled = false;
+            msg.textContent = result.error || "Something went wrong. Please try again.";
+            msg.style.color = "var(--clay)";
+          }
+        } catch (err) {
+          btn.textContent = "Join us";
+          btn.disabled = false;
+          msg.textContent = "Something went wrong. Please try again.";
+          msg.style.color = "var(--clay)";
+        }
+      }
+    </script>
   </div>
 </section>
 

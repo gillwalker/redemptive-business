@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quarterly Breakfast · Oct 30 · Redemptive Business</title>
+  <meta name="description" content="Breakfast and a short film on the real Adam Smith with Denver director Jon Cipiti. Friday, October 30, 2026 · 7:30–8:59 AM · Flatirons Community Church, Lafayette, CO.">
+  <meta property="og:title" content="Rethinking Capitalism: Breakfast + Film · October 30">
+  <meta property="og:description" content="Watch and discuss “Adam Smith: The Currency of Thought” with filmmaker Jon Cipiti. Free breakfast for business owners and leaders. Presented with Denver Institute for Faith & Work.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.redemptive.business/breakfast">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FDF8F2;
+      --paper: #FFFFFF;
+      --border: #E6D6C3;
+      --brown: #8B6B4A;
+      --dark: #3D2B1F;
+      --muted: #7A6055;
+      --accent: #C17D3C;
+      --accent-soft: #F6EBDD;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--cream);
+      color: var(--dark);
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+
+    /* NAV */
+    .nav {
+      background: var(--dark);
+      padding: 14px 20px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .nav-brand {
+      font-family: 'Playfair Display', serif; font-weight: 500;
+      color: #fff; text-decoration: none; font-size: 1rem;
+    }
+    .nav-brand span { color: var(--accent); }
+    .nav-link { color: #D9C5AE; text-decoration: none; font-size: 0.85rem; }
+    .nav-link:hover { color: #fff; }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(160deg, #3D2B1F 0%, #5A3F2C 100%);
+      color: #fff;
+      padding: 56px 20px 64px;
+      text-align: center;
+    }
+    .hero-inner { max-width: 760px; margin: 0 auto; }
+    .cobrand {
+      display: inline-flex; flex-wrap: wrap; justify-content: center; align-items: center;
+      gap: 10px 14px;
+      font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: #E8D5BE; margin-bottom: 28px;
+    }
+    .cobrand .x { color: var(--accent); font-size: 1rem; letter-spacing: 0; }
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--dark); background: var(--accent);
+      padding: 5px 14px; border-radius: 999px; margin-bottom: 20px;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif; font-weight: 600;
+      font-size: clamp(2.1rem, 6.5vw, 3.5rem); line-height: 1.12;
+      margin-bottom: 18px;
+    }
+    h1 em { font-style: italic; font-weight: 400; color: #F0C79A; }
+    .hero-sub {
+      font-size: clamp(1.05rem, 2.6vw, 1.25rem); font-weight: 300;
+      color: #EADBC8; max-width: 600px; margin: 0 auto 32px;
+    }
+    .details {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.15); border-radius: 14px; overflow: hidden;
+      max-width: 680px; margin: 0 auto 32px; text-align: left;
+    }
+    .detail { background: rgba(61,43,31,0.85); padding: 16px 18px; }
+    .detail-label {
+      font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--accent); font-weight: 600; margin-bottom: 4px;
+    }
+    .detail-value { font-size: 0.98rem; line-height: 1.4; color: #fff; }
+    .detail-value small { display: block; color: #D9C5AE; font-size: 0.85rem; }
+    .btn {
+      display: inline-block; background: var(--accent); color: #fff;
+      font-weight: 600; font-size: 1.05rem; text-decoration: none;
+      padding: 15px 36px; border-radius: 10px;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .btn:hover { background: #A86A2F; }
+    .btn:active { transform: scale(0.98); }
+    .btn-note { display: block; margin-top: 12px; font-size: 0.88rem; color: #D9C5AE; }
+
+    /* BODY */
+    main { max-width: 760px; margin: 0 auto; padding: 56px 20px 24px; }
+    section { margin-bottom: 48px; }
+    h2 {
+      font-family: 'Playfair Display', serif; font-weight: 500;
+      font-size: clamp(1.5rem, 4vw, 1.95rem); line-height: 1.25;
+      margin-bottom: 14px;
+    }
+    .kicker {
+      font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--accent); font-weight: 600; margin-bottom: 8px;
+    }
+    p + p { margin-top: 14px; }
+    .lead { font-size: 1.12rem; }
+
+    .film-card {
+      background: var(--paper); border: 1px solid var(--border); border-radius: 16px;
+      padding: 30px 28px; position: relative; overflow: hidden;
+    }
+    .film-card::before {
+      content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: var(--accent);
+    }
+    .film-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 500; margin-bottom: 4px; }
+    .film-meta { color: var(--muted); font-size: 0.9rem; margin-bottom: 16px; }
+    .think-again {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: 1.35rem; color: var(--accent); margin-top: 16px;
+    }
+
+    .agenda { list-style: none; border-top: 1px solid var(--border); }
+    .agenda li {
+      display: grid; grid-template-columns: 92px 1fr; gap: 16px;
+      padding: 14px 0; border-bottom: 1px solid var(--border);
+    }
+    .agenda .t { font-weight: 600; color: var(--brown); font-size: 0.95rem; }
+
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .box {
+      background: var(--accent-soft); border-radius: 14px; padding: 22px 22px;
+    }
+    .box h3 { font-family: 'Playfair Display', serif; font-weight: 500; font-size: 1.15rem; margin-bottom: 8px; }
+    .box p { font-size: 0.97rem; }
+
+    .partners {
+      text-align: center; background: var(--paper); border: 1px solid var(--border);
+      border-radius: 16px; padding: 28px 22px;
+    }
+    .partners .names {
+      display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px 22px;
+      font-family: 'Playfair Display', serif; font-size: 1.2rem; margin: 10px 0 12px;
+    }
+    .partners .amp { color: var(--accent); }
+    .partners p { color: var(--muted); font-size: 0.95rem; max-width: 560px; margin: 0 auto; }
+
+    .cta-final {
+      text-align: center; background: var(--dark); color: #fff;
+      border-radius: 18px; padding: 40px 22px;
+    }
+    .cta-final h2 { color: #fff; }
+    .cta-final p { color: #EADBC8; margin-bottom: 22px; }
+
+    footer {
+      text-align: center; color: var(--muted); font-size: 0.85rem;
+      padding: 28px 20px 40px;
+    }
+
+    @media (max-width: 640px) {
+      .details { grid-template-columns: 1fr; }
+      .two-col { grid-template-columns: 1fr; }
+      .agenda li { grid-template-columns: 1fr; gap: 2px; }
+      .hero { padding: 40px 16px 48px; }
+      main { padding: 40px 16px 16px; }
+      .film-card { padding: 24px 20px 24px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" aria-label="Site navigation">
+    <a href="https://www.redemptive.business" class="nav-brand">redemptive<span>.</span>business</a>
+    <a href="https://www.redemptive.business" class="nav-link">Visit the site →</a>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="cobrand" aria-label="Presented by Redemptive Business and Denver Institute for Faith and Work">
+        <span>Redemptive Business</span><span class="x">×</span><span>Denver Institute for Faith &amp; Work</span>
+      </div>
+      <div class="eyebrow">Quarterly Breakfast · Film &amp; Conversation</div>
+      <h1>You think you know <em>Adam&nbsp;Smith?</em></h1>
+      <p class="hero-sub">Join Denver filmmaker Jon Cipiti over breakfast to watch and discuss his short documentary on the moral philosopher behind modern capitalism.</p>
+
+      <div class="details" role="list">
+        <div class="detail" role="listitem">
+          <div class="detail-label">When</div>
+          <div class="detail-value">Friday, Oct 30<small>7:30 – 8:59 AM</small></div>
+        </div>
+        <div class="detail" role="listitem">
+          <div class="detail-label">Where</div>
+          <div class="detail-value">Flatirons Community Church<small>355 W South Boulder Rd, Lafayette</small></div>
+        </div>
+        <div class="detail" role="listitem">
+          <div class="detail-label">Cost</div>
+          <div class="detail-value">Free<small>Coffee &amp; pastries provided</small></div>
+        </div>
+      </div>
+
+      <a class="btn" href="/rsvp/rsvp.html?src=breakfast">Reserve your seat</a>
+      <span class="btn-note">Seating is limited. RSVP takes under a minute.</span>
+    </div>
+  </header>
+
+  <main>
+
+    <section>
+      <div class="kicker">The film</div>
+      <div class="film-card">
+        <div class="film-title">Adam Smith: The Currency of Thought</div>
+        <div class="film-meta">A short documentary · ~25 minutes · Director &amp; producer Jon Cipiti will be with us</div>
+        <p>Adam Smith is called the “Father of Capitalism,” and most of us know him only through <em>The Wealth of Nations</em> and the “invisible hand.” But Smith wrote another book first, <em>The Theory of Moral Sentiments</em>, and he believed it was the place to start.</p>
+        <p>This film introduces the whole Smith: a thinker who cared about sympathy, character, and the good of our neighbors as much as markets and self-interest.</p>
+        <p class="think-again">Think again.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="kicker">Why it matters</div>
+      <h2>What should capitalism look like for a follower of Jesus?</h2>
+      <p class="lead">If you lead a business, you live inside this question every day: in how you price, hire, compete, and define success.</p>
+      <p>Many of us have inherited a thin version of capitalism, one that treats profit as the only goal and people as a means to it. We'll use the film to ask a better question: what does it look like to run a business that is both profitable and redemptive, one that serves customers, employees, and community and honors God in the process?</p>
+    </section>
+
+    <section>
+      <div class="kicker">The morning</div>
+      <h2>What to expect</h2>
+      <ul class="agenda">
+        <li><span class="t">7:30</span><span>Coffee, pastries, and settling in at your table</span></li>
+        <li><span class="t">7:45</span><span>Welcome and introduction to Jon Cipiti</span></li>
+        <li><span class="t">7:50</span><span>Screening: <em>Adam Smith: The Currency of Thought</em></span></li>
+        <li><span class="t">8:15</span><span>Table conversation and Q&amp;A with Jon</span></li>
+        <li><span class="t">8:59</span><span>Out the door and on with your day</span></li>
+      </ul>
+    </section>
+
+    <section class="two-col">
+      <div class="box">
+        <h3>Who this is for</h3>
+        <p>Business owners, founders, executives, and leaders who follow Christ and feel the tension of honoring God while growing a healthy, profitable organization, often without many peers who understand.</p>
+      </div>
+      <div class="box">
+        <h3>What this isn't</h3>
+        <p>It's not a networking event (though we hope you'll meet some great people), and it's not a place for sales or marketing. It's an honest conversation about what God says about your work. It's good news.</p>
+      </div>
+    </section>
+
+    <section class="partners">
+      <div class="kicker">Presented together by</div>
+      <div class="names">
+        <span>Redemptive Business</span><span class="amp">&amp;</span><span>Denver Institute for Faith &amp; Work</span>
+      </div>
+      <p>Redemptive Business gathers small and medium business owners each quarter at Flatirons Community Church to explore faith and work together. We're grateful to partner with Denver Institute for Faith &amp; Work for this morning.</p>
+    </section>
+
+    <section class="cta-final">
+      <h2>Save your seat for October 30</h2>
+      <p>Free breakfast. A 25-minute film. A conversation worth having.<br>Feel free to bring a fellow business leader.</p>
+      <a class="btn" href="/rsvp/rsvp.html?src=breakfast">RSVP now</a>
+    </section>
+
+  </main>
+
+  <footer>
+    Questions? Email <a href="mailto:gill@redemptive.business">gill@redemptive.business</a><br>
+    © 2026 Redemptive Business · <a href="https://www.redemptive.business">redemptive.business</a>
+  </footer>
+
+</body>
+</html>

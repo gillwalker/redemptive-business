@@ -60,11 +60,19 @@
     .hero-inner { max-width: 760px; margin: 0 auto; }
     .cobrand {
       display: inline-flex; flex-wrap: wrap; justify-content: center; align-items: center;
-      gap: 10px 14px;
+      gap: 12px 20px;
       font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
       color: #E8D5BE; margin-bottom: 28px;
     }
-    .cobrand .x { color: var(--accent); font-size: 1rem; letter-spacing: 0; }
+    .cobrand .x { color: var(--accent); font-size: 1.4rem; letter-spacing: 0; }
+    .rb-mark {
+      font-family: 'Playfair Display', serif; font-weight: 500;
+      font-size: 1.5rem; letter-spacing: 0; text-transform: none; color: #fff;
+    }
+    .rb-mark span { color: var(--accent); }
+    .rb-mark.dark { color: var(--dark); }
+    .difw-logo { height: 58px; width: auto; display: block; }
+    .partners .difw-logo { height: 64px; }
     .eyebrow {
       display: inline-block;
       font-size: 0.75rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
@@ -190,7 +198,7 @@
   <header class="hero">
     <div class="hero-inner">
       <div class="cobrand" aria-label="Presented by Redemptive Business and Denver Institute for Faith and Work">
-        <span>Redemptive Business</span><span class="x">×</span><span>Denver Institute for Faith &amp; Work</span>
+        <span class="rb-mark">redemptive<span>.</span>business</span><span class="x">×</span><img class="difw-logo" src="images/difw-logo-white.png" alt="Denver Institute for Faith &amp; Work" width="640" height="348">
       </div>
       <div class="eyebrow">Quarterly Breakfast · Film &amp; Conversation</div>
       <h1>You think you know <em>Adam&nbsp;Smith?</em></h1>
@@ -262,7 +270,7 @@
     <section class="partners">
       <div class="kicker">Presented together by</div>
       <div class="names">
-        <span>Redemptive Business</span><span class="amp">&amp;</span><span>Denver Institute for Faith &amp; Work</span>
+        <span class="rb-mark dark">redemptive<span>.</span>business</span><span class="amp">&amp;</span><img class="difw-logo" src="images/difw-logo-dark.png" alt="Denver Institute for Faith &amp; Work" width="640" height="348">
       </div>
       <p>Redemptive Business gathers small and medium business owners each quarter at Flatirons Community Church to explore faith and work together. We're grateful to partner with Denver Institute for Faith &amp; Work for this morning.</p>
     </section>
